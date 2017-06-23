@@ -1,0 +1,156 @@
+import java.util.Scanner;
+
+public class Module5 {
+    static Scanner scan = new Scanner(System.in);
+    public static void main(String args[]){
+        int number;
+
+/*
+        System.out.printf("task1:%n");
+        number = 1000;
+        while (number <10000){
+            System.out.print(number + " ");
+            number+=3;
+        }
+        System.out.printf("%ntask2:%n");
+
+        //task2
+        number = 1;
+        int counter = 0;
+        while (counter < 55){
+            System.out.print(number + " ");
+            number+=2;
+            counter++;
+        }
+
+        System.out.printf("%ntask3:%n");
+        number = 90;
+        while (number >=0){
+            System.out.print(number + " ");
+            number-=5;
+        }
+
+        System.out.printf("%ntask4:%n");
+        number = 2;
+        counter = 0;
+        while (counter < 20){
+            System.out.print(number + " ");
+            number*=2;
+            counter++;
+        }
+
+        System.out.printf("%ntask5:%n");
+        number = scan.nextInt();
+        counter = number;
+        while(--counter > 1){
+            number*=counter;
+        }
+        System.out.println(number);
+
+        System.out.printf("task6:%n");
+        number = scan.nextInt();
+        counter = number + 1;
+        while(--counter >=1){
+            if (number%counter == 0)
+                System.out.print(counter + " ");
+        }
+
+        System.out.printf("%ntask7:%n");
+        number = scan.nextInt();
+        if (number>=-10 && number <=10){
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+        System.out.printf("%ntask8:%n");
+        number = scan.nextInt();
+        if (number>=-10 && number <=10){
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+
+        System.out.println("task8");
+        Task8();
+
+        Fibonacci();
+        System.out.println();
+
+        System.out.println(digitsum(scan.nextInt()));
+
+        happyticket();*/
+
+        //shelves();
+        time();
+    }
+    public static void Task8(){
+        int counter = 1, a = 3, b = 2;
+        int temp;
+        System.out.print(a + " " + b + " ");
+        while (++counter < 12){
+            temp = b;
+            b = 2*a - 2;
+            a = temp;
+            System.out.print(b + " ");
+        }
+    }
+
+    public static void Fibonacci(){
+        int a = 1, b = 1, counter = 2;
+        System.out.printf("%d %d ",a,b);
+        while (++counter <=11){
+            b +=a;
+            a = b-a;
+            System.out.print(b + " ");
+        }
+    }
+
+    public static int digitsum(int number){
+        int div = 10, sum = number%10;
+        while (div<=number){
+            number/=10;
+            sum += number%div;
+        }
+        return sum;
+    }
+
+    public static void happyticket(){
+        int N = 0, left, right, counter = 0;
+        while(++N<=999999){
+            left = digitsum(N/1000);
+            right = digitsum(N%1000);
+            if (left == right)
+                counter++;
+        }
+        System.out.println(counter);
+    }
+
+    public static void shelves(){
+        int N = 0, counter = 0;
+        while (++N<=50000){
+            int number = N;
+            while(number>0){
+                int digit = number%10;
+                number/=10;
+                if (digit==2){
+                    counter++;
+                    break;
+                }
+            }
+        }
+        System.out.println(counter);
+    }
+
+    public static void time(){
+        int counter = 0;
+        for (int hours = 0; hours<=23; hours++) {
+            for (int minutes = 0; minutes <= 59; minutes++) {
+                if (hours/10 == minutes%10 && minutes/10 == hours%10) {
+                    counter++;
+                }
+            }
+        }
+        System.out.println(counter);
+    }
+}
