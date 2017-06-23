@@ -1,0 +1,117 @@
+ import java.util.Arrays;
+ import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+
+public class Module4 {
+    static Scanner scan = new Scanner(System.in);
+    public static void main(String[] args){
+        //Task1
+        /*int n = scan.nextInt();
+        n+=(2 - n%2);
+        System.out.println(n);*/
+
+        //Task2
+        int number = ThreadLocalRandom.current().nextInt(1, 13);
+        monthguesser(number);
+
+        //Task3
+        number = ThreadLocalRandom.current().nextInt(1, 156);
+        task3(number);
+
+        //Task4
+        number = ThreadLocalRandom.current().nextInt(100,1000);
+        int[] array = new int[]{number/100, (number - 100*(number/100))/10, number%10};
+        Arrays.sort(array);
+        System.out.println(number + " " + array[2]);
+
+        //task5
+        int N = scan.nextInt();
+        int min = N, max = N, mid = N;
+        for (int i = 0; i < 2; i++) {
+            N = scan.nextInt();
+            if (N > max) {
+                max = N;
+            } else {
+                if (N < min) {
+                    min = N;
+                } else {
+                    mid = N;
+                }
+            }
+        }
+        System.out.printf("%d, %d, %d%n", min, mid, max);
+
+        //Task6
+        number = ThreadLocalRandom.current().nextInt(0, 28801);
+        Petrov(number);
+    }
+    public static void monthguesser(int number){
+        switch (number-1){
+            case 0:
+                System.out.println(number + " January");
+                break;
+            case 1:
+                System.out.println(number + " February");
+                break;
+            case 2:
+                System.out.println(number + " March");
+                break;
+            case 3:
+                System.out.println(number + " April");
+                break;
+            case 4:
+                System.out.println(number + " May");
+                break;
+            case 5:
+                System.out.println(number + " June");
+                break;
+            case 6:
+                System.out.println(number + " July");
+                break;
+            case 7:
+                System.out.println(number + " August");
+                break;
+            case 8:
+                System.out.println(number + " Septempber");
+                break;
+            case 9:
+                System.out.println(number + " October");
+                break;
+            case 10:
+                System.out.println(number + " November");
+                break;
+            case 11:
+                System.out.println(number + " December");
+                break;
+            default:
+                System.out.println(number + " Unknown");
+                break;
+        }
+    }
+
+    public static void task3(int number){
+        if (number>25 && number<100)
+            System.out.printf("Число %d содержится в интервале (25,100)%n", number);
+        else
+            System.out.printf("Число %d не содержится в интервале (25,100)%n", number);
+    }
+
+    public static void Petrov(int number){
+        int hours = number/3600;
+        if (number == 0)
+            System.out.printf("%d %nРабочий день закончился", number);
+        else{
+            if (hours >=5)
+                System.out.printf("%d %nОсталось %d часов", number, hours);
+            else
+            if (hours>=2){
+                System.out.printf("%d %nОсталось %d часа", number, hours);}
+            else {
+                if (hours == 1)
+                    System.out.println("%d %nОстался 1 час");
+                else
+                    System.out.printf("%d %nОсталось менее часа", number);
+            }
+        }
+    }
+}
